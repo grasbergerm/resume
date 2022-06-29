@@ -1,0 +1,200 @@
+\documentclass[9pt]{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[usenames]{color}
+
+\leftmargin=0.25in
+\oddsidemargin=0.25in
+\textwidth=6.0in
+\topmargin=-0.25in
+\textheight=9.25in
+
+\raggedright
+
+\pagenumbering{arabic} 
+\pagestyle{empty} %makes page number go away %
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+% DEFINITIONS FOR RESUME
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}
+}
+
+\newcommand{\lineover}{
+	\begin{changemargin}{-0.05in}{-0.05in}
+		\vspace*{-8pt}
+		\hrulefill \\
+		\vspace*{-2pt}
+	\end{changemargin}
+}
+
+\newcommand{\header}[1]{
+	\begin{changemargin}{-0.5in}{-0.5in}
+		\scshape{#1}\\
+  	\lineover
+	\end{changemargin}
+}
+
+\newcommand{\contact}[4]{
+	\begin{changemargin}{-0.5in}{-0.5in}
+		\begin{center}
+			{\Large \scshape {#1}}\\ \smallskip
+			{#2}\\ \smallskip 
+			{#3}\\ \smallskip
+			{#4}\smallskip
+		\end{center}
+	\end{changemargin}
+}
+
+\newenvironment{body} {
+	\vspace*{-10pt}
+	\begin{changemargin}{-0.25in}{-0.5in}
+  }	
+	{\end{changemargin}
+}	
+
+\newcommand{\school}[4]{
+	\textbf{#1} \hfill \emph{#2\\}
+	#3\\ 
+	#4\\
+}
+
+% END RESUME DEFINITIONS
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Name
+\contact{Matthew Grasberger}{mgrasber@gmu.edu}{(804) 385-1811}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Objective
+%\header{Objective}
+%
+%\begin{body}
+%	\vspace{14pt}
+%	To stop being a bum
+%\end{body}
+%
+%\smallskip
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\header{Experience}
+
+\begin{body}
+	
+	\vspace{14pt}
+	\textbf{Software Consultant}, \emph{Coveros} \hfill \emph{June 2016 - Present  }\\
+	\vspace*{-4pt}
+	\begin{itemize} \itemsep -0pt  % reduce space between items
+		\item  Lead contributor to the open-source test automation framework, Selenified
+		\item  Implemented automated testing suite using Selenium based in-house test framework, Selenified Testing Framework for various web applications
+		\item  Automated security scans of various applications using OWASP ZAP and sqlmap
+		\item  Created a continuos development pipeline which automated the building, testing, and deployment of a PHP based web application using Nexus, AWS, and Chef.
+	\end{itemize}
+	
+	\textbf{Instructor}, \emph{STEM exCEL} \hfill \emph{September 2015 - May 2016  }\\
+	\vspace*{-4pt}
+	\begin{itemize} \itemsep -0pt  % reduce space between items
+		\item  Instructed courses of up to 20 elementary age kids using tools like Scratch and GameMaker. 
+		\item  Created curriculum for elementary age kids to teach programming with Scratch 
+	\end{itemize}
+	
+	\textbf{Lead Instructor}, \emph{Mindframe Education} \hfill \emph{Febuary 2013 - September 2015}\\
+	\vspace*{-4pt}
+	\begin{itemize} \itemsep -0pt  % reduce space between items
+		\item  Developed technical courses for both children and young adults featuring Scratch, MIT App Inventor 2, Python, and Java.
+		\item Trained faculty members at Virginia Academy on how to use Scratch to introduce kids to programming.
+	\end{itemize}		
+	
+	\textbf{Research Assistant}, \emph{Visual Attention and Cognition Lab} \hfill \emph{December 2012 - May 2016 }\\
+	\vspace*{-4pt}
+	\begin{itemize} \itemsep -0pt  % reduce space between items
+		\item Worked with graduate researchers to design and develop scripts for different visual experiments using Python.
+	\end{itemize}
+\end{body}
+\vspace{10pt}	
+\smallskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Confrence Presentation
+\header{Confrence Presentations}
+
+\begin{body}
+	\vspace{14pt}
+	\textbf{STAREAST }\emph{Software Testing Conference} \hfill \emph{May 2018}{} \\
+	Automated Security Scanning for Your Delivery Pipeline
+	%\smallskip
+	\vspace{4pt}
+\end{body}
+\vspace{10pt}
+\smallskip
+% \newpage{} % uncomment this line if you want to force a new page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Projects
+\header{Independent Projects\hfill \textbf{github.com/grasbergerm}}
+
+\begin{body}
+	\vspace{14pt}
+	{\textbf{2048:}}{} Created a clone of the popular sliding-tile game 2048 using Python.\\
+	\vspace{4pt}
+	{\textbf{Reddit Background Changer:}}{} Pulls a random image from the top 25 images of a subreddit and sets it as the desktop background, programmed in Python using urllib.\\
+	\vspace{14pt}
+\end{body}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Skills
+\header{Skills}
+
+\begin{body}
+	\vspace{14pt}
+	\emph{\textbf{Programming:}}{} Python, Bash, Java, C, PHP, Javascript, JSP, Haskell, Lisp, Ruby\\
+	\smallskip
+	\emph{\textbf{Mobile Operating Systems:}}{} Android, Intermediate knowledge of iOS\\
+	\smallskip
+	\emph{\textbf{Operating Systems:}}{} Mac OS X, Linux, Windows\\
+	\smallskip
+	\emph{\textbf{Knowledge of:}}{} Jenkins, OWASP ZAP, sqlmap, Protractor, Cucumber, git, JUnit, Selenium, PMD, Findbugs, Cobertura, Android Studio, Xcode, HTML, CSS, Matlab, Mathematica \\
+	\smallskip
+	\emph{\textbf{Languages:}}{} Portuguese, German \\
+\end{body}
+\vspace{14pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Education
+\header{Education}
+
+\begin{body}
+	\vspace{14pt}
+	\textbf{B.Sc. Computer Science }{} \hfill \emph{May 2016}{} \\
+	\emph{George Mason University}, Fairfax, VA \hfill \emph{GPA: 3.25} \\
+	%\smallskip
+	\vspace{4pt}
+\end{body}
+\vspace{10pt}
+\smallskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Awards and Honors
+%\header{Extracurricular Activities}
+%
+%\begin{body}
+%	\vspace{14pt}
+%	\textbf{GMU Robotics Club } \hfill{} \emph{2011}\\
+%	\smallskip
+%	\textbf{Youth Advisory Council for Botball } \hfill{} \emph{2010 - Present}\\
+%\end{body}
+
+\end{document}
+
+
