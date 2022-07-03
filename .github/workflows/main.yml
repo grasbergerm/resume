@@ -16,6 +16,26 @@ jobs:
           # Artifact name
           name: MatthewGrasberger.pdf
           path: MatthewGrasberger.pdf
+      - name: Send mail to check PDF compilation before upload to grasbergerm.com
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # Required mail server address:
+          server_address: smtp.office365.com
+          # Required mail server port:
+          server_port: 587
+          # Optional (recommended): mail server username:
+          username: ${{secrets.MAIL_USERNAME}}
+          # Optional (recommended) mail server password:
+          password: ${{secrets.MAIL_PASSWORD}}
+          # Required mail subject:
+          subject: Github Actions job result
+          # Required recipients' addresses:
+          to: grasbergerm@gmail.com
+          # Required sender full name (address can be skipped):
+          from: Github Actions # <user@example.com>
+          # Optional plain body:
+          body: Resume compilation result from ${{github.repository}}. See attachment.
+          attachments: MatthewGrasberger.pdf
   upload_files:
     runs-on: ubuntu-latest
     environment: 'grasbergerm.com'
