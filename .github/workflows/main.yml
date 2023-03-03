@@ -24,7 +24,6 @@ jobs:
           server_address: smtp.office365.com
           # Required mail server port:
           server_port: 587
-          secure: true
           # Optional (recommended): mail server username:
           username: ${{secrets.MAIL_USERNAME}}
           # Optional (recommended) mail server password:
