@@ -19,7 +19,6 @@ jobs:
       - name: Send mail to check PDF compilation before upload to grasbergerm.com
         uses: dawidd6/action-send-mail@v3
         with:
-          
           # Required mail server address:
           server_address: smtp.office365.com
           # Required mail server port:
@@ -49,17 +48,14 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: MatthewGrasberger.pdf
-    - name: SFTP
-      env:
-        HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PASSWORD: ${{ secrets.PASSWORD }}
-        REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
-      uses: Creepios/sftp-action@v1.0.3
+    - name: setup git config
+      uses: actions/checkout@v3
       with:
-        host: ${{ env.HOST }}
-        port: 22
-        username: ${{ env.USERNAME }}
-        password: ${{ env.PASSWORD }}
-        localPath: 'MatthewGrasberger.pdf'
-        remotePath: ${{ env.REMOTE_PATH }}
+        repository: grasbergerm.github.io
+        ref: 'main'
+        token:  ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+    - run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        ls
+        # git add MatthewGrasberger.pdf
