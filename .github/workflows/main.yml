@@ -57,4 +57,4 @@ jobs:
     - run: |
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
-        git add MatthewGrasberger.pdf
+        git status
