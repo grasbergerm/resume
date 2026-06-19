@@ -20,22 +20,17 @@ jobs:
         with:
           name: MatthewGrasberger.pdf
           path: MatthewGrasberger.pdf
-      - name: Send mail to check PDF compilation before upload to grasbergerm.com
-        uses: dawidd6/action-send-mail@42942bc2f8fba4e611b459a018967a6a7c78c68c # v17
-        with:
-          server_address: smtp.office365.com
-          server_port: 587
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: Github Actions job result
-          to: grasbergerm@gmail.com
-          from: Github Actions # <user@example.com>
-          body: Resume compilation result from ${{ github.repository }}. See attachment.
-          attachments: MatthewGrasberger.pdf
 
   upload_files:
     runs-on: ubuntu-latest
-    environment: 'grasbergerm.com'
+    # Manual approval gate: this job pauses until a required reviewer of the
+    # 'grasbergerm.com' environment approves it in the Actions UI. Configure the
+    # reviewer under repo Settings -> Environments -> grasbergerm.com.
+    # At approval time the compiled PDF is already available as the build_latex
+    # artifact, so it can be inspected before approving the push.
+    environment:
+      name: grasbergerm.com
+      url: https://grasbergerm.com/MatthewGrasberger.pdf
     needs: build_latex
     name: Uploads resume PDF to grasbergerm.com
     # Only publish to the live site from main, not from feature branches.
